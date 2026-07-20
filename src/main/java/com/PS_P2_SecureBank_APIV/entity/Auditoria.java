@@ -38,4 +38,5 @@ public class Auditoria {
 
     @Column(nullable = false)
     private Boolean exitoso;
+
 }
