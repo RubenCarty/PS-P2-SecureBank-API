@@ -1,0 +1,622 @@
+
+/* =====================================================
+   ADMINISTRACIÓN DE CUENTAS
+===================================================== */
+
+.admin-account-body {
+    min-height: 100vh;
+    margin: 0;
+    color: #e2e8f0;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37, 99, 235, 0.12),
+            transparent 31%
+        ),
+        #0f172a;
+}
+
+.admin-account-main {
+    padding: 34px 0 50px;
+}
+
+/* Encabezado principal */
+
+.admin-account-hero {
+    position: relative;
+    min-height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 27px;
+    padding: 40px 43px;
+    background:
+        radial-gradient(
+            circle at 88% 20%,
+            rgba(255, 255, 255, 0.12),
+            transparent 28%
+        ),
+        linear-gradient(135deg, #172554, #1e3a8a, #2563eb);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 22px;
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+}
+
+.admin-account-hero::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    bottom: -115px;
+    width: 270px;
+    height: 270px;
+    border: 43px solid rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+}
+
+.admin-account-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.admin-account-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+    padding: 7px 12px;
+    color: #dbeafe;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+}
+
+.admin-account-hero h1 {
+    margin-bottom: 11px;
+    color: #ffffff;
+    font-size: clamp(29px, 5vw, 42px);
+    font-weight: 760;
+    letter-spacing: -1px;
+}
+
+.admin-account-hero p {
+    max-width: 590px;
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.admin-account-hero-icon {
+    position: relative;
+    z-index: 2;
+    width: 108px;
+    height: 108px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dbeafe;
+    font-size: 48px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 28px;
+    backdrop-filter: blur(8px);
+}
+
+/* Panel de búsqueda */
+
+.admin-account-panel,
+.admin-operations-panel {
+    background: #111c30;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 19px;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.admin-account-panel {
+    margin-bottom: 24px;
+}
+
+.admin-account-panel-header,
+.admin-operations-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 23px 25px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.admin-account-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.admin-account-title-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #93c5fd;
+    font-size: 19px;
+    background: rgba(37, 99, 235, 0.15);
+    border-radius: 13px;
+}
+
+.admin-account-panel-header h2,
+.admin-operations-header h2 {
+    margin-bottom: 5px;
+    color: #f8fafc;
+    font-size: 19px;
+    font-weight: 720;
+}
+
+.admin-account-panel-header p,
+.admin-operations-header p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.restricted-access-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    color: #bbf7d0;
+    font-size: 12px;
+    font-weight: 650;
+    background: rgba(22, 163, 74, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.18);
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.admin-account-form {
+    padding: 25px;
+}
+
+/* Campos */
+
+.admin-account-body .form-label {
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.admin-field-group {
+    position: relative;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    background: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 11px;
+    overflow: hidden;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.admin-field-group:focus-within {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+.admin-field-group > i {
+    position: absolute;
+    left: 15px;
+    z-index: 2;
+    color: #64748b;
+    pointer-events: none;
+}
+
+.admin-field-group .form-control {
+    min-height: 50px;
+    padding: 10px 14px 10px 44px;
+    color: #f8fafc;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.admin-field-group .form-control::placeholder {
+    color: #64748b;
+}
+
+.validate-account-button {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    border: none;
+    border-radius: 11px;
+    box-shadow: 0 9px 20px rgba(37, 99, 235, 0.2);
+}
+
+.validate-account-button:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #1d4ed8, #0284c7);
+}
+
+/* Datos de cuenta */
+
+.account-data-panel {
+    margin-top: 21px;
+    padding: 19px 20px;
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.8;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 13px;
+}
+
+.account-data-panel strong {
+    color: #f8fafc;
+    font-weight: 700;
+}
+
+/*
+  Tu JavaScript reemplaza la clase completa por
+  "alert alert-secondary". Este selector mantiene
+  el diseño aunque eso ocurra.
+*/
+
+#datosCuentaAdmin.alert-secondary {
+    margin-top: 21px;
+    padding: 19px 20px;
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.8;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 13px;
+}
+
+#datosCuentaAdmin.alert-secondary strong {
+    color: #f8fafc;
+}
+
+/* Operaciones */
+
+.admin-operations-header > i {
+    color: #64748b;
+    font-size: 24px;
+}
+
+.admin-operation-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-deposit-section,
+.admin-status-section {
+    padding: 26px;
+}
+
+.admin-deposit-section {
+    border-right: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.admin-operation-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 23px;
+}
+
+.admin-operation-heading h3 {
+    margin-bottom: 4px;
+    color: #f8fafc;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.admin-operation-heading p {
+    margin: 0;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.admin-operation-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    border-radius: 13px;
+}
+
+.deposit-icon {
+    color: #86efac;
+    background: rgba(22, 163, 74, 0.13);
+}
+
+.status-icon {
+    color: #fcd34d;
+    background: rgba(217, 119, 6, 0.13);
+}
+
+.amount-field .form-control {
+    padding-left: 47px;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 15px;
+    z-index: 2;
+    color: #86efac;
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.admin-deposit-button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    border: none;
+    border-radius: 11px;
+    box-shadow: 0 9px 20px rgba(22, 163, 74, 0.18);
+}
+
+.admin-deposit-button:hover {
+    color: #ffffff;
+    background: linear-gradient(135deg, #15803d, #16a34a);
+}
+
+.admin-status-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 19px;
+    padding: 14px;
+    color: #fde68a;
+    font-size: 12px;
+    line-height: 1.55;
+    background: rgba(217, 119, 6, 0.09);
+    border: 1px solid rgba(251, 191, 36, 0.16);
+    border-radius: 11px;
+}
+
+.admin-status-warning i {
+    margin-top: 2px;
+    color: #fbbf24;
+}
+
+.admin-status-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.block-account-button,
+.activate-account-button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 11px;
+}
+
+.block-account-button {
+    color: #fecaca;
+    background: rgba(220, 38, 38, 0.11);
+    border: 1px solid rgba(248, 113, 113, 0.22);
+}
+
+.block-account-button:hover {
+    color: #ffffff;
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+.activate-account-button {
+    color: #bfdbfe;
+    background: rgba(37, 99, 235, 0.13);
+    border: 1px solid rgba(96, 165, 250, 0.22);
+}
+
+.activate-account-button:hover {
+    color: #ffffff;
+    background: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Mensajes */
+
+.admin-account-message {
+    min-height: 20px;
+    margin: 0 26px 25px;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.admin-account-message:not(:empty) {
+    padding: 12px 14px;
+    border-radius: 10px;
+}
+
+#mensajeAdminCuenta.text-success {
+    color: #bbf7d0 !important;
+    background: rgba(22, 163, 74, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.18);
+}
+
+#mensajeAdminCuenta.text-danger {
+    color: #fecaca !important;
+    background: rgba(220, 38, 38, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.18);
+}
+
+/* Navegación inferior */
+
+.admin-account-navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.admin-navigation-card {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    color: #e2e8f0;
+    background: #111c30;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 15px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.admin-navigation-card:hover {
+    color: #ffffff;
+    background: #16233a;
+    border-color: rgba(96, 165, 250, 0.28);
+    transform: translateY(-2px);
+}
+
+.admin-navigation-icon {
+    width: 47px;
+    height: 47px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #93c5fd;
+    font-size: 20px;
+    background: rgba(37, 99, 235, 0.15);
+    border-radius: 13px;
+}
+
+.admin-navigation-card > span:nth-child(2) {
+    min-width: 0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.admin-navigation-card strong {
+    font-size: 14px;
+}
+
+.admin-navigation-card small {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+.admin-navigation-card > i:last-child {
+    color: #64748b;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .admin-operation-content {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-deposit-section {
+        border-right: none;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-account-main {
+        padding-top: 22px;
+    }
+
+    .admin-account-hero {
+        min-height: auto;
+        padding: 31px 25px;
+        border-radius: 19px;
+    }
+
+    .admin-account-hero-icon {
+        display: none;
+    }
+
+    .admin-account-panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .restricted-access-badge {
+        white-space: normal;
+    }
+
+    .admin-account-navigation {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-status-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-account-form,
+    .admin-deposit-section,
+    .admin-status-section {
+        padding: 21px;
+    }
+
+    .admin-account-title {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-account-main > .container {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .admin-account-hero {
+        padding: 27px 21px;
+    }
+
+    .admin-account-hero p {
+        font-size: 14px;
+    }
+}
+

@@ -1,0 +1,300 @@
+```css
+/* =====================================================
+   REGISTRO
+===================================================== */
+
+.register-body {
+    min-height: 100vh;
+    margin: 0;
+    color: #172033;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37, 99, 235, 0.2),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(14, 165, 233, 0.18),
+            transparent 28%
+        ),
+        linear-gradient(135deg, #eff6ff, #f8fafc, #eef2ff);
+}
+
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 760px;
+    padding: 38px 40px 30px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    box-shadow:
+        0 25px 60px rgba(30, 64, 175, 0.14),
+        0 8px 24px rgba(15, 23, 42, 0.07);
+    backdrop-filter: blur(14px);
+}
+
+.register-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.register-brand-icon {
+    width: 47px;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 21px;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    border-radius: 14px;
+    box-shadow: 0 9px 18px rgba(37, 99, 235, 0.24);
+}
+
+.register-brand > div:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-brand-name {
+    color: #172033;
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.register-brand-subtitle {
+    margin-top: 3px;
+    color: #718096;
+    font-size: 11px;
+}
+
+.register-heading {
+    margin-bottom: 27px;
+}
+
+.register-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 9px;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.register-heading h1 {
+    margin-bottom: 8px;
+    color: #172033;
+    font-size: 31px;
+    font-weight: 760;
+    letter-spacing: -0.7px;
+}
+
+.register-heading p {
+    margin: 0;
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.register-card .form-label {
+    margin-bottom: 7px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.register-input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 49px;
+    background: #ffffff;
+    border: 1px solid #dbe3ed;
+    border-radius: 11px;
+    overflow: hidden;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.register-input-group:focus-within {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.register-input-group > i {
+    position: absolute;
+    left: 15px;
+    z-index: 2;
+    color: #64748b;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.register-input-group .form-control {
+    min-height: 49px;
+    padding: 10px 13px 10px 43px;
+    color: #172033;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.register-input-group .form-control::placeholder {
+    color: #a0a9b7;
+}
+
+.password-register-group .form-control {
+    padding-right: 51px;
+}
+
+.register-password-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 49px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    background: transparent;
+    border: none;
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.register-password-button:hover,
+.register-password-button:focus {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.register-error-message {
+    min-height: 20px;
+    margin: 16px 0 8px;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 550;
+}
+
+.register-error-message:not(:empty) {
+    padding: 10px 13px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+}
+
+.register-submit-button {
+    min-height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.23);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.register-submit-button:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(37, 99, 235, 0.29);
+}
+
+.register-submit-button:active {
+    transform: translateY(0);
+}
+
+.register-login-link {
+    margin-top: 25px;
+    padding-top: 21px;
+    color: #718096;
+    font-size: 14px;
+    text-align: center;
+    border-top: 1px solid #edf1f5;
+}
+
+.register-login-link a {
+    margin-left: 5px;
+    color: #2563eb;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.register-login-link a:hover {
+    text-decoration: underline;
+}
+
+.register-security-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 19px;
+    color: #8490a2;
+    font-size: 12px;
+}
+
+.register-security-message i {
+    color: #16a34a;
+}
+
+/* =====================================================
+   RESPONSIVE REGISTRO
+===================================================== */
+
+@media (max-width: 768px) {
+    .register-page {
+        padding: 20px 14px;
+    }
+
+    .register-card {
+        padding: 30px 24px 26px;
+        border-radius: 20px;
+    }
+
+    .register-heading h1 {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-card {
+        padding: 26px 19px 23px;
+    }
+
+    .register-brand {
+        margin-bottom: 24px;
+    }
+
+    .register-heading {
+        margin-bottom: 23px;
+    }
+}
+```

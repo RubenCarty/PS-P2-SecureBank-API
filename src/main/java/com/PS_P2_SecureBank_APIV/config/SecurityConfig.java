@@ -40,8 +40,21 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                                "/", "/login", "/register",
+                                "/dashboard", "/transferencia", "/historial",
+                                "/admin/auditoria", "/admin/cuentas",
+                                "/css/**", "/js/**", "/images/**","/admin/usuarios"
+                        ).permitAll()                       .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/swagger-ui.html", "/v3/api-docs/**")
+                        .hasRole("ADMIN")
+
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+
+                        .requestMatchers("/api/cuentas/**").hasAnyRole("CLIENTE", "ADMIN")
+                        .requestMatchers("/api/transferencias/**").hasAnyRole("CLIENTE", "ADMIN")
+
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(

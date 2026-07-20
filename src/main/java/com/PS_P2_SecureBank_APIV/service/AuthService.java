@@ -27,20 +27,50 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
+    private final AuditoriaService auditoriaService;
 
     public LoginResponse login(LoginRequest request) {
 
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword()
-                )
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getUsername(),
+                            request.getPassword()
+                    )
+            );
 
-        String token =
-                jwtService.generateToken(request.getUsername());
+            Usuario usuario = usuarioRepository.findByUsername(request.getUsername())
+                    .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        return new LoginResponse(token);
+            String token = jwtService.generateToken(
+                    usuario.getUsername(),
+                    usuario.getRol().getNombre().name()
+            );
+
+            auditoriaService.registrarEvento(
+                    request.getUsername(),
+                    "LOGIN",
+                    "Inicio de sesión exitoso",
+                    "127.0.0.1",
+                    "AUTH",
+                    true
+            );
+
+            return new LoginResponse(token);
+
+        } catch (Exception e) {
+
+            auditoriaService.registrarEvento(
+                    request.getUsername(),
+                    "LOGIN_FALLIDO",
+                    "Credenciales incorrectas",
+                    "127.0.0.1",
+                    "AUTH",
+                    false
+            );
+
+            throw new RuntimeException("Usuario o contraseña incorrectos");
+        }
     }
     public Usuario registrar(RegisterRequest request) {
 
